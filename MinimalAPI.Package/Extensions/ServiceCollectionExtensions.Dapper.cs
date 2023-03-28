@@ -6,7 +6,7 @@ public static partial class ServiceColletionExtensions
 {
     public static WebApplicationBuilder AddDapper(this WebApplicationBuilder builder)
     {
-        builder.Services.AddScoped(_ => new NpgsqlDataSourceBuilder(builder.Configuration.GetConnectionString("DbConn")).Build());
+        builder.Services.AddScoped(_ => new NpgsqlConnection(builder.Configuration.GetConnectionString("DbConn")));
 
         return builder;
     }

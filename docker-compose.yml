@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  packagedb:
+    container_name: "packagedb"
+    image: "postgres:latest"
+    ports:
+      - "5432:5432"
+    volumes:
+      - 'packagedb-volume:/var/lib/postgresql/data'
+    networks:
+      - apinetwork
+    environment:
+      - 'POSTGRES_DB=pkgdb'
+      - 'POSTGRES_USER=admin'
+      - 'POSTGRES_PASSWORD=admin'
+
+  deliverydb:
+      container_name: "deliverydb"
+      image: "postgres:latest"
+      ports:
+        - "5433:5432"
+      volumes:
+        - 'deliverydb-volume:/var/lib/postgresql/data'
+      networks:
+        - apinetwork
+      environment:
+        - 'POSTGRES_DB=deliverydb'
+        - 'POSTGRES_USER=admin'
+        - 'POSTGRES_PASSWORD=admin'
+
+volumes:
+  packagedb-volume:
+  deliverydb-volume:
+
+networks:
+  apinetwork:
+    name: api-network
+    
