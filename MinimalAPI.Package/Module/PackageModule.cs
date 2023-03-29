@@ -1,4 +1,5 @@
 using Dapper;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using MinimalAPI.Package.Dto;
 using Npgsql;
@@ -23,12 +24,19 @@ public sealed class PackageModule : ICarterModule
             return Results.Ok(package);
         });
 
-        app.MapPost("/package", async ([FromServices]NpgsqlConnection db, [FromBody]RegisterPackageDto dto) => 
+        app.MapPost("/package", async ([FromServices]NpgsqlConnection db, [FromBody]RegisterPackageDto dto, IPublishEndpoint publishEndpoint) => 
         {
            var newPackage = await db.QueryFirstOrDefaultAsync<RegisterPackageDto>(
                    @"INSERT INTO package(code, country, description)
                      VALUES(@code, @country, @description)
                      RETURNING package.*;", dto).ConfigureAwait(false);
+
+           await publishEndpoint.Publish(new PackageCreated
+           {
+             PackageId = (int)newPackage.PackageId!,
+             Code = newPackage.Code,
+             Timestamp = DateTime.Now,
+           }, CancellationToken.None).ConfigureAwait(false);
 
            return Results.Created($"/package/{newPackage.PackageId}", newPackage);
         });
