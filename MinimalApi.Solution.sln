@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Package", "MinimalAPI.Package\MinimalAPI.Package.csproj", "{7F5BB230-FCD9-406C-B144-7F93A93BD71A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Package", "API\MinimalAPI.Package\MinimalAPI.Package.csproj", "{7F5BB230-FCD9-406C-B144-7F93A93BD71A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Delivery", "MinimalAPI.Delivery\MinimalAPI.Delivery.csproj", "{F8ADD7F8-4045-4098-9D85-0F297A8008D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Delivery", "API\MinimalAPI.Delivery\MinimalAPI.Delivery.csproj", "{F8ADD7F8-4045-4098-9D85-0F297A8008D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Contracts", "MinimalAPI.Contracts\MinimalAPI.Contracts.csproj", "{B173D1AE-BCA8-4823-BF06-CA84DF7111C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Contracts", "API\MinimalAPI.Contracts\MinimalAPI.Contracts.csproj", "{B173D1AE-BCA8-4823-BF06-CA84DF7111C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Front", "MinimalAPI.Front\MinimalAPI.Front.csproj", "{48443658-ACCF-4C68-BB24-60C16C1CEA05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +32,9 @@ Global
 		{B173D1AE-BCA8-4823-BF06-CA84DF7111C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B173D1AE-BCA8-4823-BF06-CA84DF7111C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B173D1AE-BCA8-4823-BF06-CA84DF7111C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48443658-ACCF-4C68-BB24-60C16C1CEA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48443658-ACCF-4C68-BB24-60C16C1CEA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48443658-ACCF-4C68-BB24-60C16C1CEA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48443658-ACCF-4C68-BB24-60C16C1CEA05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
